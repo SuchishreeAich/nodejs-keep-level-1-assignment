@@ -20,6 +20,10 @@ const loginUser = (userInfo) => {
                 // console.log(' No login user for',userNameTemp);
                 reject({message : 'You are not registered user',status : 403});
             }
+            else if(data.userName!==userNameTemp){
+                // console.log(' No login user for',userNameTemp);
+                reject({message : 'You are not registered user',status : 403});
+            }
             else if(data.password!==passwordTemp){
                 // console.log('No password match for ',userNameTemp);
                 reject({message : 'Password is incorrect',status : 403});
