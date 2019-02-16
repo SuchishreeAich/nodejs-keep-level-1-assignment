@@ -20,7 +20,7 @@ const addNotes = (userId,data) => {
             }
         });
     });
-}
+};
 
 const getNotesByUserId = (userId) => {
      //console.log('get notes 4: ', notesInfo);
@@ -40,7 +40,7 @@ const getNotesByUserId = (userId) => {
         });
         
     });
-}
+};
 
 const updateNotes = (noteId,note) => {
    
@@ -75,7 +75,7 @@ const updateNotes = (noteId,note) => {
         });
         //console.log('update notes 10');
     });
-}
+};
 
 module.exports = {
     addNotes,
