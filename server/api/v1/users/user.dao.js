@@ -4,12 +4,8 @@ const uuidv1 = require('uuid/v1');
 const loginUser = (userInfo) => {
 
     return new Promise((resolve,reject) => {
-
-        const query = {
-            userName : userInfo.userName
-        };
-        
-        userModule.findOne(query, (error,doc) => {
+              
+        userModule.findOne({'userName' : userInfo.userName}, (error,data) => {
             
             //console.log('login user for',userNameTemp);
 
@@ -17,18 +13,18 @@ const loginUser = (userInfo) => {
                 // console.log('login user failed for',userNameTemp);
                 reject({message : 'Login failure',status : 500});
             }
-            else if(!doc){
+            else if(!data){
                 // console.log(' No login user for',userNameTemp);
                 reject({message : 'You are not registered user',status : 403});
             }
-            else if(doc.password !== userInfo.password){
+            else if(data.password !== userInfo.password){
                 // console.log('No password match for ',userNameTemp);
                 reject({message : 'Password is incorrect',status : 403});
             }
             else{
                 // console.log('login success for',userNameTemp);
-                let user = {userId : doc.userId,userName : doc.userName};
-                resolve({message : "Successfull login",status:200,user:user}); 
+                let user = {userId : data.userId,userName : data.userName};
+                resolve({message : 'Successfull login',status:200,user:user}); 
             }
         });
         
