@@ -5,25 +5,19 @@ const loginUser = (userInfo) => {
 
     return new Promise((resolve,reject) => {
               
-        userModule.findOne({'userName' : userInfo.userName}, (error,data) => {
+        userModule.findOne({'username' : userInfo.username}, (error,data) => {
             
-            //console.log('login user for',userNameTemp);
-
             if(error){
-                // console.log('login user failed for',userNameTemp);
                 reject({message : 'Login failure',status : 500});
             }
             else if(!data){
-                // console.log(' No login user for',userNameTemp);
                 reject({message : 'You are not registered user',status : 403});
             }
             else if(data.password !== userInfo.password){
-                // console.log('No password match for ',userNameTemp);
                 reject({message : 'Password is incorrect',status : 403});
             }
             else{
-                // console.log('login success for',userNameTemp);
-                let user = {userId : data.userId,userName : data.userName};
+                let user = {userId : data.userId,userName : data.username};
                 resolve({message : 'Successfull login',status:200,user:user}); 
             }
         });
@@ -36,7 +30,7 @@ const registerUser = (userInfo) => {
     return new Promise((resolve,reject) => {
         let newUser = new userModule();
         newUser.userId = uuidv1();
-        newUser.userName = userInfo.userName;
+        newUser.username = userInfo.username;
         newUser.password = userInfo.password;
         newUser.save((error,addedUser) => {
             if(error){
@@ -50,7 +44,7 @@ const registerUser = (userInfo) => {
             }
             else{
                 //console.log('register usersuccess: ');
-                let user={userInfo:addedUser.userName};
+                let user={userInfo:addedUser.username};
                 resolve({message : "Successfull register",status:201,user:user});
             }
         });

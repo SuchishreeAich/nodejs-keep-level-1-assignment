@@ -18,17 +18,17 @@ const NOTE_2={
 }
 
 const USER_1={
-    userName: USER_ID_1,
+    username: USER_ID_1,
     password: USER_ID_1
 };
 
 const USER_2={
-    userName: USER_ID_2,
+    username: USER_ID_2,
     password: USER_ID_2
 };
 
 const USER_3={
-    userName: USER_ID_3,
+    username: USER_ID_3,
     password: USER_ID_3
 };
 
