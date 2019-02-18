@@ -36,7 +36,7 @@ const registerUser = (userInfo) => {
             if(error){
                 
                 if(error.message.includes('duplicate')){
-                    reject({message : 'username is already exist',status : 403});
+                    reject({message : 'username is already exist',status : 403,user:null});
                 }
                 else{
                     reject({message : 'Registration Failure',status : 500,user:null});
