@@ -39,7 +39,7 @@ const registerUser = (userInfo) => {
                     reject({message : 'username is already exist',status : 403});
                 }
                 else{
-                    reject({message : 'Registration Failure',status : 500});
+                    reject({message : 'Registration Failure',status : 500,user:null});
                 }
             }
             else{
