@@ -17,7 +17,7 @@ const loginUser = (userInfo) => {
                 reject({message : 'Password is incorrect',status : 403});
             }
             else{
-                let user = {userId : data.userId,userName : data.username};
+                let user = {userName : data.username};
                 resolve({message : 'Successfull login',status:200,user:user}); 
             }
         });

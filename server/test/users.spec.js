@@ -59,7 +59,7 @@ describe('Testing to login user', function()
     .then((response)=>{
       expect(response.body).to.have.property('user');
       expect(response.body.user).to.have.property('userName');
-      expect(response.body.user.userName).to.equal(config.USER_1.userName);
+      expect(response.body.user.userName).to.equal(config.USER_1.username);
       done();
     });
   });
