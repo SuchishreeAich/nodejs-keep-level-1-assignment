@@ -32,20 +32,23 @@ const registerUser = (userInfo) => {
         newUser.userId = uuidv1();
         newUser.username = userInfo.username;
         newUser.password = userInfo.password;
+        let registeredUser;
         newUser.save((error,addedUser) => {
             if(error){
                 
                 if(error.message.includes('duplicate')){
-                    reject({message : 'username is already exist',status : 403,user:null});
+                    registeredUser={userInfo:null};
+                    reject({message : 'username is already exist',status : 403,user:registeredUser});
                 }
                 else{
-                    reject({message : 'Registration Failure',status : 500,user:null});
+                    registeredUser={userInfo:null};
+                    reject({message : 'Registration Failure',status : 500,user:registeredUser});
                 }
             }
             else{
                 //console.log('register usersuccess: ');
-                let user={userInfo:addedUser.username};
-                resolve({message : "Successfull register",status:201,user:user});
+                registeredUser={userInfo:addedUser.username};
+                resolve({message : "Successfull register",status:201,user:registeredUser});
             }
         });
     });
