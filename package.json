@@ -18,7 +18,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "express": "^4.15.5",
-    "mongoose": "^5.0.10",
+    "mongoose": "^5.7.5",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
